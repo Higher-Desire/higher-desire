@@ -4,8 +4,8 @@ const app = express();
 const { PORT = 3000 } = process.env;
 
 app.use(express.json())
+console.log('')
 
+app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../client/index.html')));
 
-//app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../client/index.html')));
-
-app.listen(PORT, () => console.log('listening on port 3000'));
+app.listen(PORT, () => console.log('listening on port:', PORT));
