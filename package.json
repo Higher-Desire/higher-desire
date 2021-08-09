@@ -1,0 +1,38 @@
+{
+  "name": "higher-desire",
+  "version": "1.0.0",
+  "description": "Application used to manage the job hunt.",
+  "main": "./src/client/index.js",
+  "scripts": {
+    "dev": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"NODE_ENV=development webpack serve --open -- hot\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Higher-Desire/higher-desire.git"
+  },
+  "author": "Kaden Johnson, Jason Yoon, and Fahad Shaikh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Higher-Desire/higher-desire/issues"
+  },
+  "homepage": "https://github.com/Higher-Desire/higher-desire#readme",
+  "devDependencies": {
+    "webpack": "^5.49.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^6.2.1",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^5.3.2",
+    "image-webpack-loader": "^7.0.1",
+    "nodemon": "^2.0.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
