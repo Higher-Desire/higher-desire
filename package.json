@@ -4,7 +4,7 @@
   "description": "Application used to manage the job hunt.",
   "main": "./src/client/index.js",
   "scripts": {
-    "dev": "concurrently \"cross-env NODE_ENV=development nodemon server/server.js\" \"NODE_ENV=development webpack serve --open -- hot\""
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open \" \"NODE_ENV=development nodemon ./server/server.js\""
   },
   "repository": {
     "type": "git",
@@ -22,12 +22,16 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "concurrently": "^6.2.1",
     "cross-env": "^7.0.3",
+    "css-loader": "^6.2.0",
     "express": "^4.17.1",
     "html-webpack-plugin": "^5.3.2",
     "image-webpack-loader": "^7.0.1",

@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry : './src/client/index.js',
+  entry: './src/client/index.js',
   mode: 'development',
   devtool: 'eval-source-map',
   output: {
@@ -12,13 +12,13 @@ module.exports = {
   },
   devServer: {
     host: 'localhost',
-    contentbase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
     port: 8080,
     publicPath: '/',
     inline: true,
     proxy: {
-      '/': {
+      '/**': {
         target: 'http://localhost:3000'
       }
     }
@@ -26,15 +26,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/i,
-        exclude: [/node_modules/, __dirname + './splash'],
+        test: /\.(js)x?$/i,
+        exclude: [path.resolve(__dirname, 'node_modules')],
         use: {
           loader: 'babel-loader',
           options: {
             presets: [
               '@babel/preset-env',
               '@babel/preset-react',
-              '@babel/preset-typescript'
             ]
           }
         }
@@ -42,10 +41,10 @@ module.exports = {
       {
         test: /\.[sac]ss$/i,
         use: ['css-loader'],
-      }    
+      }
     ]
   },
-  plugins: [ 
+  plugins: [
     new HtmlWebpackPlugin({
       template: './src/client/index.html',
       inject: true,
