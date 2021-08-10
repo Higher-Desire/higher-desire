@@ -1,10 +1,9 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/client/index.js',
   mode: 'development',
-  devtool: 'eval-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -13,12 +12,11 @@ module.exports = {
   devServer: {
     host: 'localhost',
     contentBase: path.resolve(__dirname, 'dist'),
-    hot: true,
     port: 8080,
     publicPath: '/',
     inline: true,
     proxy: {
-      '/**': {
+      '/': {
         target: 'http://localhost:3000'
       }
     }
@@ -26,32 +24,27 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js)x?$/i,
-        exclude: [path.resolve(__dirname, 'node_modules')],
+        test: /.(jsx|js)$/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-            ]
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
-        test: /\.[sac]ss$/i,
-        use: ['css-loader'],
-      }
-    ]
+        test: /\.(sa|sc|c)ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/client/index.html',
-      inject: true,
-      filename: 'index.html'
+    new HtmlWebPackPlugin({
+      template: './src/client/index.html'
     })
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   }
 }
