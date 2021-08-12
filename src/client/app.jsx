@@ -24,13 +24,13 @@ const App = () => {
       </div>
       <div>
         <Switch>
-          <Route exact path="/">
+          <Route path="/board">
             <Login />
           </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/board">
+          <Route exact path="/">
             <JobBoard />
           </Route>
         </Switch>
