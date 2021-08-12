@@ -79,7 +79,7 @@ const JobBoard = () => {
                         {card.companyName}
                       </h3>
                       <div>
-                        <a href={card.email} />
+                        <a href={card.email} >{card.email}</a>
                         <Typography>{card.jobTitle}</Typography>
                       </div>
                     </Card>
