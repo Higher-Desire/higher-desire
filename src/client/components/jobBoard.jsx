@@ -37,7 +37,7 @@ const JobBoard = () => {
             <Container>
               <Typography align="center">{item}</Typography>
               <Button variant="contained" color="primary">
-                <Typography>Create Application +</Typography>
+                <Typography>Create Application</Typography>
               </Button>
             </Container>
           </Grid>

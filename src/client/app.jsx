@@ -1,26 +1,41 @@
 import React from 'react';
-
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import JobBoard from './components/jobBoard';
-import AppBar from '@material-ui/core/AppBar';
-import { Drawer, Toolbar } from '@material-ui/core';
-
+import Login from './components/signin';
+import SignUp from './components/signup';
 
 const App = () => {
   return (
-    <div>
-      <AppBar position="fixed">
-        <Toolbar variant='dense'>
-
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" anchor="left">
-        <div>
-          
-        </div>
-      </Drawer>
-      <div style={{marginBottom: '50px'}}></div>
-      <JobBoard />
-    </div >
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/board">Job Board</Link>
+            </li>
+            <li>
+              <Link to="/signup">Signup</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/board">
+            <JobBoard />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   )
 }
 

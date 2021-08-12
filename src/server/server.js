@@ -8,9 +8,12 @@ const bodyParser = require('body-parser');
 const cardController = require('./controllers/cardController');
 
 app.use(express.json())
-console.log('')
 
-app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, '../client/index.html')));
+app.get('/signup', (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')));
+app.get('/board', (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')));
+app.get('/', (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')));
+
+app.use((req, res) =>res.sendStatus(404))
 
 
 app.post('/card', cardController.postCard, (req, res) => {
