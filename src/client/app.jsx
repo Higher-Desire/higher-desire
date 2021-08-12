@@ -1,16 +1,40 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Signin from './components/signin';
-import Signup from './components/signup';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import JobBoard from './components/jobBoard';
+import Login from './components/signin';
+import SignUp from './components/signup';
 
 const App = () => {
   return (
     <Router>
-    <div className ="container">
-      <h1>Adding Routes!</h1>
-    </div >
-    <Route path="/" component={Signin}></Route>
-    <Route path="/signup" component={Signup}></Route>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/board">Job Board</Link>
+            </li>
+            <li>
+              <Link to="/signup">Signup</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/board">
+            <JobBoard />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   )
 }
